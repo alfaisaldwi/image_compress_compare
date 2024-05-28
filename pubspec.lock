@@ -200,6 +200,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.1"
+  photo_view_x:
+    dependency: "direct main"
+    description:
+      name: photo_view_x
+      sha256: beec486a65c42d33744e44ca6d741c59d3ded215f938f0eba73e686c185f5d3c
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
   platform:
     dependency: transitive
     description:

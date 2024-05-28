@@ -3,6 +3,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
+import 'package:photo_view_x/photo_view_x.dart';
 
 void main() {
   runApp(const MyApp());
@@ -79,7 +80,7 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
     var resultCompress = await FlutterImageCompress.compressAndGetFile(
       originalFile.path,
       compressedFilePath,
-      quality: 20,
+      quality: 25,
       minWidth: 800,
       minHeight: 600,
     );
@@ -110,7 +111,11 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
                   ? Column(
                       children: [
                         const Text('Original File'),
-                        Image.file(_originalFile!),
+                        PhotoView(
+                            tapEnabled: true,
+                            child: Image(
+                              image: FileImage(_originalFile!),
+                            )),
                         Text(
                             'Size: ${(_originalFile!.lengthSync() / (1024 * 1024)).toStringAsFixed(2)} MB'),
                       ],
@@ -121,7 +126,11 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
                   ? Column(
                       children: [
                         const Text('Compressed File'),
-                        Image.file(_compressedFile!),
+                        PhotoView(
+                            tapEnabled: true,
+                            child: Image(
+                              image: FileImage(_compressedFile!),
+                            )),
                         Text(
                             'Size: ${(_compressedFile!.lengthSync() / (1024 * 1024)).toStringAsFixed(2)} MB'),
                       ],
